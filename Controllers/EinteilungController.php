@@ -3,6 +3,7 @@
 class EinteilungController extends BaseController {
 
     public $einteilungen = array();
+    public $abteilungen = array();
 
     public function indexAction() {
         $einteilung = new Einteilung();
@@ -16,12 +17,14 @@ class EinteilungController extends BaseController {
         }
 
         $einteilung = new Einteilung((int) $_GET['id']);
-
+        
         if (!$einteilung->idToLogin($einteilung)) {
             throw new Exception('ID gehört nicht zu Login');
         }
         
         $this->einteilungen = $einteilung->fetchAll();
+        $abteilung = new Abteilung();
+        $this->abteilungen = $abteilung->fetchAll();
         $this->view();
     }
 

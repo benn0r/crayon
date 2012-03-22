@@ -40,7 +40,7 @@ class EinteilungTable extends BaseTable {
     }
 
     public function getLogin() {
-        return $this->login;
+        return $this->Login;
     }
 
     private function setLogin($Login) {

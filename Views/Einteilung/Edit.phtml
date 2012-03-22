@@ -7,16 +7,25 @@
                     &nbsp;
                 </th>
                 <th>
-                    Name
+                    Vorname
+                </th>
+                <th>
+                    Nachname
                 </th>
                 <th>
                     Abteilung
                 </th>
                 <th>
-                    Von
+                    Von Kalenderwoche
                 </th>
                 <th>
-                    Bis
+                    Von Jahr
+                </th>
+                <th>
+                    Bis Kalenderwoche
+                </th>
+                <th>
+                    Bis Jahr
                 </th>
                 <th>
                     &nbsp;
@@ -34,22 +43,36 @@
                             &nbsp;
                         </td>
                         <td>
-                            <?= $einteilung->getPerson()->getVorname() . ' ' . $einteilung->getPerson()->getNachname() ?>
+                            <input id="txtVorname" name="txtVorname" type="text" maxlength="20" value="<?= $einteilung->getPerson()->getVorname(); ?>">
                         </td>
                         <td>
-                            <?= $einteilung->getAbteilung()->getAbteilung() ?>
+                            <input id="txtNachname" name="txtNachname" type="text" maxlength="20" value="<?= $einteilung->getPerson()->getNachname(); ?>">
                         </td>
                         <td>
-                            KW<?= $einteilung->getVonKalenderwoche() . ' ' . $einteilung->getVonJahr() ?>
+
+                            <select name="ddlAbteilung" size="1">
+                                <? foreach ($this->abteilungen as $abteilung) { ?>
+                                    <option value="<?= $abteilung->getId() ?>" <? echo (($einteilung->getAbteilung()->getId() == $abteilung->getId()) ? "selected=\"selected\"" : "") ?>>
+                                        <?= $abteilung->getAbteilung() ?></option>
+                                <? } ?>
+                            </select>
+
+                        </td>
+
+                        <td>
+                            <input id="txtVonKalenderwoche" name="txtVonKalenderwoche" type="text" maxlength="2" size="2" value="<?= $einteilung->getVonKalenderwoche() ?>">
                         </td>
                         <td>
-                            KW<?= $einteilung->getBisKalenderwoche() . ' ' . $einteilung->getBisJahr() ?>
+                            <input id="txtVonJahr" name="txtVonJahr" type="text" maxlength="4" size="4" value="<?= $einteilung->getVonJahr() ?>">
                         </td>
                         <td>
-                            <a href="?controller=einteilung&action=edit&id=<?= $einteilung->getId() ?>"><img src="Style/Icons/edit.png"></a>
+                            <input id="txtBisKalenderwoche" name="txtBisKalenderwoche" type="text" maxlength="2" size="2" value="<?= $einteilung->getBisKalenderwoche() ?>">
                         </td>
                         <td>
-                            <a href="?controller=einteilung&action=delete&id=<?= $einteilung->getId() ?>"><img src="Style/Icons/delete.png"></a>
+                            <input id="txtBisJahr" name="txtBisJahr" type="text" maxlength="4" size="4" value="<?= $einteilung->getBisJahr() ?>">
+                        </td>
+                        <td>
+                            <a href="?controller=einteilung&action=save"><img src="Style/Icons/save.png"></a>
                         </td>
                     </tr>            
                 <? } else { ?>
@@ -58,16 +81,25 @@
                             <input id="cb<?= $einteilung->getId() ?>" name="cb<?= $einteilung->getId() ?>" type="checkbox">
                         </td>
                         <td>
-                            <?= $einteilung->getPerson()->getVorname() . ' ' . $einteilung->getPerson()->getNachname() ?>
+                            <?= $einteilung->getPerson()->getVorname() ?>
+                        </td>
+                        <td>
+                            <?= $einteilung->getPerson()->getNachname() ?>
                         </td>
                         <td>
                             <?= $einteilung->getAbteilung()->getAbteilung() ?>
                         </td>
                         <td>
-                            KW<?= $einteilung->getVonKalenderwoche() . ' ' . $einteilung->getVonJahr() ?>
+                            <?= $einteilung->getVonKalenderwoche() ?>
                         </td>
                         <td>
-                            KW<?= $einteilung->getBisKalenderwoche() . ' ' . $einteilung->getBisJahr() ?>
+                            <?= $einteilung->getVonJahr() ?>
+                        </td>
+                        <td>
+                            <?= $einteilung->getBisKalenderwoche() ?>
+                        </td>
+                        <td>
+                            <?= $einteilung->getBisJahr() ?>
                         </td>
                         <td>
                             <a href="?controller=einteilung&action=edit&id=<?= $einteilung->getId() ?>"><img src="Style/Icons/edit.png"></a>
@@ -77,8 +109,10 @@
                         </td>
                     </tr>
 
-                <? }
-            } ?>
+                    <?
+                }
+            }
+            ?>
 
         </tbody>
     </table>
