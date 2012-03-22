@@ -1,0 +1,28 @@
+<form class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label" for="txtAbteilung">Berufsbild:</label>
+        <div class="controls"><input id="txtAbteilung" name="txtBerufsbild" type="text" maxlength="50" value="<?= $this->berufsbild->getBerufsbild(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtKuerzel">K&uuml;rzel:</label>
+        <div class="controls"><input id="txtKuerzel" name="txtKuerzel" type="text" maxlength="10" value="<?= $this->berufsbild->getKuerzel(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Dauer:</label>
+        <div class="controls"><input id="txtDauer" name="txtDauer" type="text" maxlength="11" value="<?= $this->berufsbild->getDauer(); ?>"></div>
+    </div>
+
+    <label class="control-label">Berufsbildner:</label>
+    <div class="controls">
+        <select name="ddlBerufsbildner" size="1">
+            <? foreach ($this->leiter as $berufsbildner) { ?>
+                    <option value="<?= $berufsbildner->getId() ?>" <? echo (($this->berufsbild->getBerufsbildner()->getId() == $berufsbildner->getId()) ? "selected=\"selected\"" : "") ?>>
+                        <?= $berufsbildner->getName()?></option>
+            <? } ?>
+        </select>
+    </div>
+
+</form>

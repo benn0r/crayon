@@ -1,0 +1,12 @@
+<form class="form-horizontal">
+    <ul>
+        <?php foreach ($this->personen as $person) { ?>
+
+            <li>
+                <a href="?controller=person&action=edit&id=<?= $person->getId() ?>"> <?= $person->getVorname() . ' ' . $person->getNachname() ?> </a>
+            </li>
+
+        <?php } ?>
+    </ul>
+</form>
+

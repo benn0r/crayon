@@ -1,0 +1,17 @@
+Personen Funktionen:
+********************
+
+Berufsbildner, 1
+Fachvorgesetzer, 2
+Abteilungsleiter, 3
+Lernender, 4
+Schulleiter, 5
+Kursleiter, 6
+
+Berufsbildner, Fachvorgesetzer, Abteilungsleiter 7
+Schulleiter, Kursleiter, 8
+
+Schulausbildung:
+****************
+Schule, 1
+Kurse, 2

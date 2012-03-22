@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Style/Style.css">
+    </head>
+    <body>
+        <ul>
+            <?php
+            foreach ($this->schulausbildungen as $schulausbildung) {?>
+
+               <li>
+                   <a href="?controller=schulausbildung&action=edit&id=<?= $schulausbildung->getId() ?>"> <?= $schulausbildung->getName() ?> </a>
+                </li>
+
+            <?php } ?>
+        </ul>
+    </body>
+</html>

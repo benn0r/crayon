@@ -1,0 +1,40 @@
+<form class="form-horizontal">
+
+
+    <div class="control-group">
+        <label class="control-label" for="txtVorname">Vorname:</label>
+        <div class="controls"><input id="txtVorname" name="txtVorname" type="text" maxlength="20" value="<?= $this->person->getVorname(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtNachname">Nachname:</label>
+        <div class="controls"><input id="txtNachname" name="txtNachname" type="text" maxlength="20" value="<?= $this->person->getNachname(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Adresse:</label>
+        <div class="controls"><input id="txtAdresse" name="txtAdresse" type="text" maxlength="100" value="<?= $this->person->getAdresse(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Zusatzadresse:</label>
+        <div class="controls"><input id="txtZusatzadresse" name="txtZusatzadresse" type="text" maxlength="100" value="<?= $this->person->getZusatzadresse(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Postleitzahl:</label>
+        <div class="controls"><input id="txtPostleitzahl" name="txtPostleitzahl" type="text" maxlength="11" value="<?= $this->person->getPostleitzahl(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Ort:</label>
+        <div class="controls"><input id="txtOrt" name="txtOrt" type="text" maxlength="50" value="<?= $this->person->getOrt(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">E-Mail:</label>
+        <div class="controls"><input id="txtEmail" name="txtEmail" type="text" maxlength="50" value="<?= $this->person->getEmail(); ?>"></div>
+    </div>
+
+
+</form>

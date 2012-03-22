@@ -1,0 +1,12 @@
+<form class="form-horizontal">
+    <ul>
+        <? foreach ($this->abteilungen as $abteilung) { ?>
+
+            <li>
+                <a href="?controller=abteilung&action=edit&id=<?= $abteilung->getId() ?>"> <?= $abteilung->getAbteilung() ?> </a>
+            </li>
+
+        <? } ?>
+    </ul>
+</form>
+

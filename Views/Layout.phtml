@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Style/Bootstrap/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    <div class="well" style="padding: 8px 0">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Navigation</li>
+                            <li class="nav-header2">Unternehmen</li>
+                            <li><a href="?controller=abteilung&action=index">Abteilungen</a></li>
+                            <li><a href="?controller=person&action=index&type=1">Berufsbildner/in</a></li>
+                            <li><a href="?controller=person&action=index&type=2">Fachvorgesetze/r</a></li>
+                            <li><a href="?controller=person&action=index&type=3">Abteilungsleiter/in</a></li>
+                            <li><a href="?controller=berufsbild&action=index">Berufsbilder</a></li>
+                            <li class="nav-header2">Ausbildung</li>
+                            <li><a href="?controller=person&action=index&type=4">Lernende/r</a></li>
+                            <li><a href="?controller=einteilung&action=index">Einteilungen</a></li>
+                            <li><a href="?controller=schulausbildung&action=index&type=1">Schulen</a></li>
+                            <li><a href="?controller=person&action=index&type=5">Schulleiter/in</a></li>
+                            <li><a href="?controller=schulausbildung&action=index&type=2">Kurse</a></li>
+                            <li><a href="?controller=person&action=index&type=6">Kursleiter/in</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="span10">
+                    <?php require_once 'Views/' . ucfirst($_GET['controller'] . '/' . ucfirst($_GET['action'])) . '.phtml'; ?>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

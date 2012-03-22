@@ -1,0 +1,38 @@
+<form class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label" for="txtName">Name:</label>
+        <div class="controls"><input id="txtName" name="txtName" type="text" maxlength="50" value="<?= $this->schulausbildung->getName(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtAdresse">Adresse:</label>
+        <div class="controls"><input id="txtAdresse" name="txtAdresse" type="text" maxlength="50" value="<?= $this->schulausbildung->getAdresse(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtZusatzadresse">Zusatzadresse:</label>
+        <div class="controls"><input id="txtZusatzadresse" name="txtZusatzadresse" type="text" maxlength="50" value="<?= $this->schulausbildung->getZusatzadresse(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtPostleitzahl">Postleitzahl:</label>
+        <div class="controls"><input id="txtPostleitzahl" name="txtPostleitzahl" type="text" maxlength="11" value="<?= $this->schulausbildung->getPostleitzahl(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtOrt">Ort:</label>
+        <div class="controls"><input id="txtOrt" name="txtOrt" type="text" maxlength="20" value="<?= $this->schulausbildung->getOrt(); ?>"></div>
+    </div>
+
+    <label class="control-label"><? echo ($this->schulausbildung->getType() ? 'Schulleiter:':'Kursleiter:') ?></label>
+    <div class="controls">
+        <select name="ddlLeiter" size="1">
+            <? foreach ($this->leiter as $leiter) { ?>
+                <option value="<?= $leiter->getId() ?>" <? echo (($this->schulausbildung->getLeiter()->getId() == $leiter->getId()) ? "selected=\"selected\"" : "") ?>>
+                    <?= $leiter->getName() ?></option>
+            <? } ?>
+        </select>
+    </div>
+
+</form>

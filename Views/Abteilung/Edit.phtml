@@ -1,0 +1,35 @@
+<form class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label" for="txtAbteilung">Abteilung:</label>
+        <div class="controls"><input id="txtAbteilung" name="txtAbteilung" type="text" maxlength="50" value="<?= $this->abteilung->getAbteilung(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="txtKuerzel">K&uuml;rzel:</label>
+        <div class="controls"><input id="txtKuerzel" name="txtKuerzel" type="text" maxlength="10" value="<?= $this->abteilung->getKuerzel(); ?>"></div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Fachvorgesetzer:</label>
+        <div class="controls">
+            <select name="ddlFachvorgesetzer" size="1">
+                <? foreach ($this->leiter as $fachvorgesetzer) { ?>
+                    <option value="<?= $fachvorgesetzer->getId() ?>" <? echo (($this->abteilung->getFachvorgesetzer()->getId() == $fachvorgesetzer->getId()) ? "selected=\"selected\"" : "") ?>>
+                        <?= $fachvorgesetzer->getName() ?></option>
+                <? } ?>
+            </select>
+        </div>
+    </div>
+
+    <label class="control-label">Abteilungsleiter:</label>
+    <div class="controls">
+        <select name="ddlAbteilungsleiter" size="1">
+            <? foreach ($this->leiter as $abteilungsleiter) { ?>
+                    <option value="<?= $abteilungsleiter->getId() ?>" <? echo (($this->abteilung->getAbteilungsleiter()->getId() == $abteilungsleiter->getId()) ? "selected=\"selected\"" : "") ?>>
+                        <?= $abteilungsleiter->getName()?></option>
+            <? } ?>
+        </select>
+    </div>
+
+</form>
