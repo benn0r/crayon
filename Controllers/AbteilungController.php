@@ -46,7 +46,6 @@ class AbteilungController extends BaseController {
         $abteilung->save();
         header('Location: ?controller=abteilung&action=index');
         
-        
     }
 
 }

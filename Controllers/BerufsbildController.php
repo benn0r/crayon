@@ -22,10 +22,28 @@ class BerufsbildController extends BaseController {
         if (!$this->berufsbild->idToLogin($this->berufsbild)) {
             throw new Exception('ID gehört nicht zu Login');
         }
-        
+
         $person = new Person();
         $this->leiter = $person->fetchAll(7);
         $this->view();
+    }
+
+    public function addAction() {
+        $person = new Person();
+        $this->leiter = $person->fetchAll(7);
+        $this->view();
+    }
+
+    public function createAction() {
+
+        $berufsbild = new Berufsbild();
+        $berufsbild->setBerufsbild($_POST['txtBerufsbild']);
+        $berufsbild->setKuerzel($_POST['txtKuerzel']);
+        $berufsbild->setDauer($_POST['txtDauer']);
+        $berufsbild->setBerufsbildner($_POST['ddlBerufsbildner']);
+        
+        $berufsbild->save();
+        header('Location: ?controller=berufsbild&action=index');
     }
 
 }

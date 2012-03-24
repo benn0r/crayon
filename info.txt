@@ -15,3 +15,8 @@ Schulausbildung:
 ****************
 Schule, 1
 Kurse, 2
+
+
+
+
+- Hat eine Abteilung überhaupt ein Fachvorgesetzter, nicht eher das Berufsbild?

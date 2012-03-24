@@ -1,18 +1,13 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="Style/Style.css">
-    </head>
-    <body>
+<form class="form-horizontal">
         <ul>
-            <?php
-            foreach ($this->berufsbilder as $berufsbild) {?>
+            <? foreach ($this->berufsbilder as $berufsbild) {?>
 
                <li>
                    <a href="?controller=berufsbild&action=edit&id=<?= $berufsbild->getId() ?>"> <?= $berufsbild->getBerufsbild() ?> </a>
                 </li>
 
-            <?php } ?>
+            <? } ?>
         </ul>
-    </body>
-</html>
+        <div class="btn"><a href="?controller=berufsbild&action=add">Neues Berufsbild</a></div>
+
+</form>
