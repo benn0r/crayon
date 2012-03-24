@@ -8,7 +8,7 @@ class AbteilungTable extends BaseTable {
     private $kuerzel;
     private $abteilung;
     private $Abteilungsleiter;
-    private $Fachvorgesetzer;
+    private $Fachvorgesetzter;
 
     public function __construct($id = null) {
         if (!is_null($id)) {
@@ -21,7 +21,7 @@ class AbteilungTable extends BaseTable {
             $this->setKuerzel($row->kuerzel);
             $this->setAbteilung($row->abteilung);
             $this->setAbteilungsleiter($row->Abteilungsleiter);
-            $this->setFachvorgesetzer($row->Fachvorgesetzer);
+            $this->setFachvorgesetzter($row->Fachvorgesetzter);
         } else {
             $this->setLogin($_SESSION['LOGIN']);
         }
@@ -64,16 +64,16 @@ class AbteilungTable extends BaseTable {
         return $this->Abteilungsleiter;
     }
 
-    public function setAbteilungsleiter($Abteilungsleiter) {
-        $this->Abteilungsleiter = new Person((int) $Abteilungsleiter);
+    public function setAbteilungsleiter($abteilungsleiter) {
+        $this->Abteilungsleiter = new Person((int) $abteilungsleiter);
     }
 
-    public function getFachvorgesetzer() {
-        return $this->Fachvorgesetzer;
+    public function getFachvorgesetzter() {
+        return $this->Fachvorgesetzter;
     }
 
-    public function setFachvorgesetzer($Fachvorgesetzer) {
-        $this->Fachvorgesetzer = new Person((int) $Fachvorgesetzer);
+    public function setFachvorgesetzter($fachvorgesetzter) {
+        $this->Fachvorgesetzter = new Person((int) $fachvorgesetzter);
     }
 
     public function fetchAll() {
@@ -88,7 +88,7 @@ class AbteilungTable extends BaseTable {
             $abteilung->setKuerzel($row->kuerzel);
             $abteilung->setAbteilung($row->abteilung);
             $abteilung->setAbteilungsleiter($row->Abteilungsleiter);
-            $abteilung->setFachvorgesetzer($row->Fachvorgesetzer);
+            $abteilung->setFachvorgesetzter($row->Fachvorgesetzter);
             $data[] = $abteilung;
         }
 
@@ -98,22 +98,22 @@ class AbteilungTable extends BaseTable {
     public function save() {
 
         if (is_null($this->Login)) {
-            return $this->logNullField($table, 'Login');
+            return $this->logNullField($this->table, 'Login');
         } elseif (is_null($this->kuerzel)) {
-            return $this->logNullField($table, 'kuerzel');
+            return $this->logNullField($this->table, 'kuerzel');
         } elseif (is_null($this->abteilung)) {
-            return $this->logNullField($table, 'abteilung');
+            return $this->logNullField($this->table, 'abteilung');
         } elseif (is_null($this->Abteilungsleiter)) {
-            return $this->logNullField($table, 'Abteilungsleiter');
-        } elseif (is_null($this->Fachvorgesetzer)) {
-            return $this->logNullField($table, 'Fachvorgesetzer');
+            return $this->logNullField($this->table, 'Abteilungsleiter');
+        } elseif (is_null($this->Fachvorgesetzter)) {
+            return $this->logNullField($this->table, 'Fachvorgesetzter');
         }
 
         $data = array('kuerzel' => $this->kuerzel,
             'Login' => $this->Login,
             'abteilung' => $this->abteilung,
-            'Abteilungsleiter' => $this->Abteilungsleiter->id,
-            'Fachvorgesetzer' => $this->Fachvorgesetzer->id);
+            'Abteilungsleiter' => $this->Abteilungsleiter->getId(),
+            'Fachvorgesetzter' => $this->Fachvorgesetzter->getId());
 
         if (is_null($this->id)) {
             return $this->insert($data);

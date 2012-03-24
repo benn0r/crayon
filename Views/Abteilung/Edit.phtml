@@ -15,7 +15,7 @@
         <div class="controls">
             <select name="ddlFachvorgesetzer" size="1">
                 <? foreach ($this->leiter as $fachvorgesetzer) { ?>
-                    <option value="<?= $fachvorgesetzer->getId() ?>" <? echo (($this->abteilung->getFachvorgesetzer()->getId() == $fachvorgesetzer->getId()) ? "selected=\"selected\"" : "") ?>>
+                    <option value="<?= $fachvorgesetzer->getId() ?>" <? echo (($this->abteilung->getFachvorgesetzter()->getId() == $fachvorgesetzer->getId()) ? "selected=\"selected\"" : "") ?>>
                         <?= $fachvorgesetzer->getName() ?></option>
                 <? } ?>
             </select>

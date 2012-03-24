@@ -28,6 +28,26 @@ class AbteilungController extends BaseController {
         
         $this->view();
     }
+    
+    public function addAction(){
+        $person = new Person();
+        $this->leiter = $person->fetchAll(7);
+        $this->view();
+    }
+    
+    public function createAction(){
+        
+        $abteilung = new Abteilung();
+        $abteilung->setAbteilung($_POST['txtAbteilung']);
+        $abteilung->setKuerzel($_POST['txtKuerzel']);
+        $abteilung->setFachvorgesetzter((int)$_POST['ddlFachvorgesetzter']);
+        $abteilung->setAbteilungsleiter((int)$_POST['ddlAbteilungsleiter']);
+        
+        $abteilung->save();
+        header('Location: ?controller=abteilung&action=index');
+        
+        
+    }
 
 }
 
